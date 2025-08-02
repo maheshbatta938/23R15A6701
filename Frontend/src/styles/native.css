@@ -9,7 +9,7 @@ body {
   align-items: center;
 }
 
-.login-container, .shorten-container, .stats-container {
+.login-container {
   width: 480px;
   min-height: 420px;
   background: #fff;
@@ -22,12 +22,20 @@ body {
   justify-content: center;
   align-items: center;
 }
+ .stats-container{
+  background-color:white;
+}
+.shorten-container{
+  height:300px;
+  width:500px;
+  background-color:white;
+}
 
 /* Form styling */
 .login-form, .shorten-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 5px;
 }
 
 .login-form h2, .shorten-form h2 {
@@ -42,7 +50,7 @@ body {
 .login-form label, .shorten-form label {
   font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: #222;
 }
 
