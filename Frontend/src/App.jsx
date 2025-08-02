@@ -13,20 +13,16 @@ function App() {
   if (!token) {
     return (
       <div className="login-container">
-        {authMode === 'login' ? (
-          <Login setToken={setToken} />
-        ) : (
-          <Register onRegistered={() => setAuthMode('login')} />
-        )}
+        {authMode === 'login' ? <Login setToken={setToken} /> : <Register onRegistered={() => setAuthMode('login')} />}
         <div className="auth-toggle">
-          <button
-            className={authMode === 'login' ? 'active' : ''}
+          <button 
+            className={authMode === 'login' ? 'active' : ''} 
             onClick={() => setAuthMode('login')}
           >
             Login
           </button>
-          <button
-            className={authMode === 'register' ? 'active' : ''}
+          <button 
+            className={authMode === 'register' ? 'active' : ''} 
             onClick={() => setAuthMode('register')}
           >
             Register
@@ -37,29 +33,14 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      <nav className="nav-bar">
-        <button
-          className={page === 'shorten' ? 'nav-btn active' : 'nav-btn'}
-          onClick={() => setPage('shorten')}
-        >
-          Shorten URL
-        </button>
-        <button
-          className={page === 'stats' ? 'nav-btn active' : 'nav-btn'}
-          onClick={() => setPage('stats')}
-        >
-          Statistics
-        </button>
-        <button className="nav-btn logout-btn" onClick={() => setToken(null)}>
-          Logout
-        </button>
+    <div>
+      <nav className="nav-container">
+        <button onClick={() => setPage('shorten')}>Shorten URL</button>
+        <button onClick={() => setPage('stats')}>Statistics</button>
+        <button onClick={() => setToken(null)}>Logout</button>
       </nav>
-
-      <main>
-        {page === 'shorten' && <Shorten token={token} />}
-        {page === 'stats' && <Statistics token={token} />}
-      </main>
+      {page === 'shorten' && <Shorten token={token} />}
+      {page === 'stats' && <Statistics token={token} />}
     </div>
   );
 }
